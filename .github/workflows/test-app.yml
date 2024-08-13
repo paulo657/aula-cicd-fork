@@ -9,7 +9,28 @@ env:
   IMAGE_NAME: aula-cicd
 
 jobs:
+
   test:
+    runs-on: ubuntu-latest
+    container: python:3.12.1-bullseye
+    services:
+      postgres:
+        image: postgres
+        env:
+          POSTGRESS_PASSWORD: password
+          POSTGRES_USER: myuser
+          POSTGRES_DB: mydb
+    steps:
+      - uses: actions/checkout@v4
+      - name: "Install pip deps"
+        run: pip install -r requirements.txt
+      - name: "Run Migrations"
+        run: python wrapped/manage.py migrate
+      - name: "Run Tests"
+        run: python wrapped/manage.py test -v 3
+
+
+  build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
