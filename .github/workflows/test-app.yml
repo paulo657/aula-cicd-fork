@@ -11,6 +11,7 @@ env:
 jobs:
 
   test:
+    name: "Teste da Aplicação"
     runs-on: ubuntu-latest
     container: python:3.12.1-bullseye
     services:
@@ -31,6 +32,8 @@ jobs:
 
 
   build:
+    name: "Construção do Container"
+    needs: test
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
