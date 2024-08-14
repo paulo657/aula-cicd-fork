@@ -27,7 +27,7 @@ jobs:
       - name: "Run Migrations"
         run: python wrapped/manage.py migrate
       - name: "Run Tests"
-        run: python wrapped/manage.py test -v 3
+        run: cd wrapped && python manage.py test -v 3
 
 
   build:
