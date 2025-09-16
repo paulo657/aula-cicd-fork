@@ -2,7 +2,7 @@ asgiref==3.7.2
 astroid==3.0.2
 certifi==2023.11.17
 charset-normalizer==3.3.2
-coverage==7.4.0
+coverage==7.10.6
 defusedxml==0.7.1
 dill==0.3.7
 Django==5.0.8
